@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: project-overview-calculator
+    runtime: python
+    buildCommand: python -m compileall server.py
+    startCommand: python server.py
+    healthCheckPath: /health

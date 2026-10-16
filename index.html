@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create a project overview and calculate the parking-per-unit ratio." />
+  <title>Project Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css?v=1" />
+</head>
+<body>
+  <main class="layout">
+    <section class="card">
+      <header class="main-head">
+        <h1>Project Overview</h1>
+        <p class="intro">Enter the property and project information below. The parking-per-unit ratio is calculated automatically.</p>
+      </header>
+
+      <section class="subsection details-section">
+        <h2>Your Details</h2>
+        <div class="field-grid">
+          <label>
+            Full Name
+            <input id="fullName" type="text" placeholder="John Doe" autocomplete="name" />
+          </label>
+          <label>
+            Email Address
+            <input id="email" type="email" placeholder="john@email.com" autocomplete="email" />
+          </label>
+        </div>
+      </section>
+
+      <section class="subsection">
+        <h2>Project Information</h2>
+        <div class="overview-grid">
+          <label class="wide-field">
+            Property Name
+            <input id="propertyName" type="text" placeholder="Property name" />
+          </label>
+          <label class="wide-field">
+            Address
+            <input id="address" type="text" placeholder="Street address" autocomplete="street-address" />
+          </label>
+          <label>
+            City &amp; State
+            <input id="cityState" type="text" placeholder="City, State" />
+          </label>
+          <label>
+            Deal Sponsor
+            <input id="dealSponsor" type="text" placeholder="Sponsor name" />
+          </label>
+          <label class="wide-field">
+            Contact Information
+            <input id="contactInformation" type="text" placeholder="Phone, email, or other contact details" />
+          </label>
+          <label>
+            No. Units
+            <input id="numberOfUnits" type="text" value="0" inputmode="numeric" data-numeric aria-describedby="ratioHelp" />
+          </label>
+          <label>
+            Occupancy % Currently
+            <span class="suffix-input"><input id="occupancy" type="number" min="0" max="100" step="0.1" placeholder="0" /><span>%</span></span>
+          </label>
+          <label>
+            Year Built
+            <input id="yearBuilt" type="number" min="0" step="1" placeholder="Year" />
+          </label>
+          <label>
+            Asset Class (A, B, C, D)
+            <select id="assetClass">
+              <option value="">Select asset class</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+            </select>
+          </label>
+          <label>
+            Total SF of Rentable Units
+            <input id="rentableSquareFeet" type="text" value="0" inputmode="numeric" data-numeric />
+          </label>
+          <label>
+            Land Acreage of Purchase
+            <input id="landAcreage" type="number" min="0" step="0.01" placeholder="0.00" />
+          </label>
+          <label>
+            Parking Stalls
+            <input id="parkingStalls" type="text" value="0" inputmode="numeric" data-numeric aria-describedby="ratioHelp" />
+          </label>
+          <div class="ratio-card" aria-live="polite">
+            <p>Parking per Unit Ratio</p>
+            <strong id="parkingRatio">0.00</strong>
+            <span id="ratioHelp">Parking stalls divided by number of units</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary-card">
+        <h2>Project Summary</h2>
+        <div class="summary-grid">
+          <div>
+            <p>Property</p>
+            <strong id="summaryProperty">Not provided</strong>
+          </div>
+          <div>
+            <p>Number of Units</p>
+            <strong id="summaryUnits">0</strong>
+          </div>
+          <div>
+            <p>Parking Stalls</p>
+            <strong id="summaryParking">0</strong>
+          </div>
+          <div class="summary-ratio">
+            <p>Parking per Unit Ratio</p>
+            <strong id="summaryRatio">0.00</strong>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="downloadPdf" type="button">Download PDF</button>
+          <p id="downloadStatus" role="status"></p>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="./logo-data.js?v=1"></script>
+  <script src="./app.js?v=3"></script>
+</body>
+</html>
